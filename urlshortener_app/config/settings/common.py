@@ -3,7 +3,7 @@ from os.path import join
 from distutils.util import strtobool
 from configurations import Configuration
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 class Common(Configuration):
@@ -21,6 +21,10 @@ class Common(Configuration):
         "django.contrib.sessions",
         "django.contrib.messages",
         "django.contrib.staticfiles",
+        # third part apps
+        'crispy_forms',
+        # apps
+        "urlshortener.urlshortener"
     )
 
     # https://docs.djangoproject.com/en/2.0/topics/http/middleware/
@@ -36,7 +40,7 @@ class Common(Configuration):
 
     ROOT_URLCONF = "config.urls"
 
-    STATICFILES_DIRS = []
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'urlshortener/templates')]
 
     TEMPLATES = [
         {
@@ -91,4 +95,6 @@ class Common(Configuration):
 
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/2.0/howto/static-files/
-    STATIC_ROOT = os.path.normpath(join(os.path.dirname(BASE_DIR), "static"))
+    STATIC_ROOT = os.path.normpath(join(os.path.dirname(BASE_DIR), "urlshortener/static"))
+
+    CRISPY_TEMPLATE_PACK = 'bootstrap4'

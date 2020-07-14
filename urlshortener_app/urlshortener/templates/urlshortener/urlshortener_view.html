@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <p class="lead">Paste the URL to be shortened.</p>
+    <form novalidate action="{% url 'add_url' %}" method="post">
+        {{ form|crispy }}
+        {% csrf_token %}
+    <input type="submit" value="Submit">
+  </form>
+
+    {% if short_url %}
+        <p class="lead">Your link: <a href="{{ short_url }}">{{ short_url }}</a></p>
+    {% endif %}
+{% endblock %}
