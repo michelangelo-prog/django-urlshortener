@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+  postgres:
+    container_name: postgres
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    env_file:
+      - ./.envs/.local/.postgres
+    ports:
+      - 5432:5432
+
+  urlshortener_app:
+    container_name: urlshortener-app
+    build:
+      context: ./urlshortener_app
+      dockerfile: Dockerfile
+    restart: always
+    env_file:
+      - ./.envs/.local/.urlshortener_app
+      - ./.envs/.local/.postgres
+    command: >
+      bash -c "python wait_for_postgres.py &&
+               ./manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    volumes:
+      - ./urlshortener_app:/usr/src/app

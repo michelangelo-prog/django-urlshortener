@@ -1,0 +1,4 @@
+# General
+# ------------------------------------------------------------------------------
+DJANGO_SECRET_KEY=secret_key
+DJANGO_DEBUG=yes
