@@ -1,7 +1,9 @@
-from django.test import TestCase
+from django.contrib.auth.models import AnonymousUser
+from django.test import RequestFactory, TestCase
 from django.urls import reverse
 
 from ..factories import UrlFactory
+from ..views import create_short_url_view
 
 
 class TestUrlRedirectView(TestCase):
@@ -20,10 +22,21 @@ class TestUrlRedirectView(TestCase):
             fetch_redirect_response=True,
         )
 
-    def test_raise_404_when_url_not_exists_in_db(self):
+    def test_return_404_when_url_not_exists_in_db(self):
         test_url_shortcut = "testtesttest"
         response = self.client.get(
             reverse("redirect_to_url", args=(test_url_shortcut,)), follow=True
         )
 
         self.assertEqual(404, response.status_code)
+
+
+class CreateShortUrlView(TestCase):
+    def setUp(self):
+        self.factory = RequestFactory()
+
+    def test_get_view(self):
+        request = self.factory.get("/")
+        request.user = AnonymousUser()
+        response = create_short_url_view(request)
+        self.assertEqual(200, response.status_code)
