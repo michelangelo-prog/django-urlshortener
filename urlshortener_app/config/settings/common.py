@@ -2,7 +2,6 @@ import os
 from distutils.util import strtobool
 from os.path import join
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 SITE_URL = os.getenv("SITE_URL", "http://0.0.0.0:8000")
@@ -94,8 +93,6 @@ STATIC_URL = "/static/"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-STATIC_ROOT = os.path.normpath(
-    join(os.path.dirname(BASE_DIR), "urlshortener/static")
-)
+STATIC_ROOT = os.path.normpath(join(os.path.dirname(BASE_DIR), "urlshortener/static"))
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
