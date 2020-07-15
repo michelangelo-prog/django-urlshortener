@@ -24,7 +24,7 @@ class Common(Configuration):
         "django.contrib.messages",
         "django.contrib.staticfiles",
         # third part apps
-        'crispy_forms',
+        "crispy_forms",
         # apps
         "urlshortener.urlshortener",
     )
@@ -42,7 +42,7 @@ class Common(Configuration):
 
     ROOT_URLCONF = "config.urls"
 
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'urlshortener/templates')]
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, "urlshortener/templates")]
 
     TEMPLATES = [
         {
@@ -97,6 +97,8 @@ class Common(Configuration):
 
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/2.0/howto/static-files/
-    STATIC_ROOT = os.path.normpath(join(os.path.dirname(BASE_DIR), "urlshortener/static"))
+    STATIC_ROOT = os.path.normpath(
+        join(os.path.dirname(BASE_DIR), "urlshortener/static")
+    )
 
-    CRISPY_TEMPLATE_PACK = 'bootstrap4'
+    CRISPY_TEMPLATE_PACK = "bootstrap4"

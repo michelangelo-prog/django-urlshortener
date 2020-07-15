@@ -5,6 +5,7 @@ from .models import Url
 
 from django.http import Http404
 
+
 class CreateShortUrlView(CreateView):
 
     template_name = "urlshortener/urlshortener_view.html"
@@ -25,7 +26,9 @@ class CreateShortUrlView(CreateView):
             context.pop("short_url", None)
         return self.render_to_response(context)
 
+
 create_short_url_view = CreateShortUrlView.as_view()
+
 
 class UrlRedirectView(RedirectView):
 
@@ -38,8 +41,6 @@ class UrlRedirectView(RedirectView):
             return object.url
         else:
             raise Http404
-
-
 
 
 url_redirect_view = UrlRedirectView.as_view()

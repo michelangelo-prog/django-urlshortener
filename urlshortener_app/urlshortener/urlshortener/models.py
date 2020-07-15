@@ -8,6 +8,7 @@ from .helpers import BASE62IdConverter
 
 from django.urls import reverse
 
+
 class Url(models.Model):
 
     object = UrlManager()
@@ -16,7 +17,9 @@ class Url(models.Model):
 
     @property
     def short_url(self):
-        return "{}{}".format(settings.SITE_URL, reverse("redirect_to_url", args=(self.url_shortcut,)))
+        return "{}{}".format(
+            settings.SITE_URL, reverse("redirect_to_url", args=(self.url_shortcut,))
+        )
 
     @property
     def url_shortcut(self):

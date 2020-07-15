@@ -2,8 +2,8 @@ from unittest import TestCase
 
 from ..helpers import BASE62IdConverter
 
-class TestBASE62IdConverter(TestCase):
 
+class TestBASE62IdConverter(TestCase):
     def test_encode_id_to_string(self):
         id = 125
         result = BASE62IdConverter.encode_id_to_string(id)

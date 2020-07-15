@@ -3,8 +3,8 @@ from factory import Sequence
 
 from .models import Url
 
-class UrlFactory(DjangoModelFactory):
 
+class UrlFactory(DjangoModelFactory):
     class Meta:
         model = Url
 

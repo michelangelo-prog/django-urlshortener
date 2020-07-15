@@ -11,5 +11,3 @@ class UrlManager(models.Manager):
             return None
         else:
             return self.filter(id=id).first()
-
-
