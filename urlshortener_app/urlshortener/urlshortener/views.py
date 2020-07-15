@@ -1,9 +1,8 @@
-from django.views.generic import CreateView, RedirectView
-from .forms import UrlForm
-
-from .models import Url
-
 from django.http import Http404
+from django.views.generic import CreateView, RedirectView
+
+from .forms import UrlForm
+from .models import Url
 
 
 class CreateShortUrlView(CreateView):

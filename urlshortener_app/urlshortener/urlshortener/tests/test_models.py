@@ -1,16 +1,11 @@
+import factory
+from django.conf import settings
+from django.db.utils import IntegrityError
 from django.test import TestCase
 
-import factory
-
 from ..factories import UrlFactory
-
-from ..models import Url
-
 from ..helpers import BASE62IdConverter
-
-from django.db.utils import IntegrityError
-
-from django.conf import settings
+from ..models import Url
 
 
 class TestLocationModel(TestCase):

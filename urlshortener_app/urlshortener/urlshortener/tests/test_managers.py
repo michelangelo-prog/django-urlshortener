@@ -1,10 +1,8 @@
 from django.test import TestCase
 
 from ..factories import UrlFactory
-
-from ..models import Url
-
 from ..helpers import BASE62IdConverter
+from ..models import Url
 
 
 class TestUrlManager(TestCase):

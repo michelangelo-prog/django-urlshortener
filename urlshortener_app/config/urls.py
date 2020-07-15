@@ -1,8 +1,7 @@
-from django.urls import path
 from django.contrib import admin
-
-from urlshortener.urlshortener.views import create_short_url_view, url_redirect_view
-
+from django.urls import path
+from urlshortener.urlshortener.views import (create_short_url_view,
+                                             url_redirect_view)
 
 urlpatterns = [
     path("admin/", admin.site.urls),

@@ -1,12 +1,9 @@
-from django.db import models
-
 from django.conf import settings
-
-from .managers import UrlManager
+from django.db import models
+from django.urls import reverse
 
 from .helpers import BASE62IdConverter
-
-from django.urls import reverse
+from .managers import UrlManager
 
 
 class Url(models.Model):
