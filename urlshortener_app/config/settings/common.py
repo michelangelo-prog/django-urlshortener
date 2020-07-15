@@ -26,7 +26,7 @@ class Common(Configuration):
         # third part apps
         'crispy_forms',
         # apps
-        "urlshortener.urlshortener"
+        "urlshortener.urlshortener",
     )
 
     # https://docs.djangoproject.com/en/2.0/topics/http/middleware/
