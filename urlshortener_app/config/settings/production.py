@@ -1,6 +1,6 @@
-from .common import Common
+from .common import *
 
 
-class Production(Common):
-    INSTALLED_APPS = Common.INSTALLED_APPS
-    INSTALLED_APPS += ("gunicorn",)
+INSTALLED_APPS += ("gunicorn",)
+
+

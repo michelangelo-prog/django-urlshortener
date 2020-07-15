@@ -2,6 +2,5 @@
 # ------------------------------------------------------------------------------
 DJANGO_SECRET_KEY=secret_key
 DJANGO_DEBUG=yes
-DJANGO_SETTINGS_MODULE=config
-DJANGO_CONFIGURATION=Local
+DJANGO_SETTINGS_MODULE=config.settings.local
 SITE_URL=http://0.0.0.0:8000

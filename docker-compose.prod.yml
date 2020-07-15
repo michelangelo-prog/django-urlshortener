@@ -1,0 +1,45 @@
+version: '2'
+
+services:
+  postgres:
+    container_name: postgres
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    env_file:
+      - ./.envs/.production/.postgres
+    expose:
+      - 5432
+
+  urlshortener_app:
+    container_name: urlshortener-app
+    build:
+      context: ./urlshortener_app
+      dockerfile: Dockerfile
+    restart: always
+    env_file:
+      - ./.envs/.production/.urlshortener_app
+      - ./.envs/.production/.postgres
+    command: >
+      bash -c "python wait_for_postgres.py &&
+               gunicorn --bind 0.0.0.0:8000 config.wsgi:application"
+    volumes:
+      - static_volume:/usr/src/urlshortener/static
+    expose:
+      - 8000
+    depends_on:
+      - postgres
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    volumes:
+      - static_volume:/usr/src/urlshortener/static
+    ports:
+      - 1337:8080
+    depends_on:
+      - urlshortener_app
+
+volumes:
+  static_volume:
