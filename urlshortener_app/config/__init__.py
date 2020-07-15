@@ -1,1 +1,2 @@
-from .settings.local import Local  # noqa
+from .settings.local import Local
+from .settings.production import Production

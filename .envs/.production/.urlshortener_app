@@ -1,7 +1,7 @@
 # General
 # ------------------------------------------------------------------------------
-DJANGO_SECRET_KEY=secret_key
-DJANGO_DEBUG=yes
+DJANGO_SECRET_KEY=schange_in_prod
+DJANGO_DEBUG=no
 DJANGO_SETTINGS_MODULE=config
-DJANGO_CONFIGURATION=Local
-SITE_URL=http://0.0.0.0:8000
+DJANGO_CONFIGURATION=Production
+SITE_URL=change_in_prod
