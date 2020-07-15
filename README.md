@@ -19,4 +19,4 @@ docker exec -it urlshortener-app python manage.py createsuperuser
 
 Access the application at the address [http://localhost:8000/](http://localhost:8000/)
 
-Access the admin site at the adress [http://localhost:8000/admin/login/?next=/admin/](http://localhost:8000//admin/login/?next=/admin/)
+Access the admin site at the adress [http://localhost:8000/admin/](http://localhost:8000/admin/)
