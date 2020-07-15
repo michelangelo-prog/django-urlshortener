@@ -1,8 +1,6 @@
 from django.views.generic import CreateView, RedirectView
 from .forms import UrlForm
 
-from django.urls import reverse
-
 from .models import Url
 
 from django.http import Http404
@@ -15,7 +13,16 @@ class CreateShortUrlView(CreateView):
     def form_valid(self, form):
         self.object = form.save()
         context = self.get_context_data()
-        context["short_url"] = self.request.build_absolute_uri(reverse('redirect_to_url', args=(self.object.short_url, )))
+        context["short_url"] = self.object.short_url
+        return self.render_to_response(context)
+
+    def form_invalid(self, form):
+        context = self.get_context_data(form=form)
+        if form.has_error("url", "unique"):
+            url_object = Url.object.get(url=form.data["url"])
+            context["short_url"] = url_object.short_url
+        else:
+            context.pop("short_url", None)
         return self.render_to_response(context)
 
 create_short_url_view = CreateShortUrlView.as_view()

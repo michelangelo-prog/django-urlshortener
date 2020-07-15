@@ -11,7 +11,7 @@ class TestUrlManager(TestCase):
         self.url_objs = [UrlFactory() for i in range(100)]
 
     def test_get_by_shortcut(self):
-        received_url_obj = [Url.object.get_by_shortcut(obj.short_url) for obj in self.url_objs]
+        received_url_obj = [Url.object.get_by_shortcut(obj.url_shortcut) for obj in self.url_objs]
 
         for get_obj, expected_obj in zip(received_url_obj, self.url_objs):
             self.assertEqual(expected_obj.id, get_obj.id)

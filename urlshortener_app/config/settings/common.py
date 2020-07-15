@@ -8,6 +8,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 class Common(Configuration):
 
+    SITE_URL = os.getenv("SITE_URL", "http://0.0.0.0:8000")
+
     SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
     DEBUG = strtobool(os.getenv("DJANGO_DEBUG", "no"))
