@@ -10,6 +10,7 @@ psycopg2==2.8.5 --no-binary psycopg2
 ipdb==0.13.3
 ipython==7.14.0
 flake8==3.8.2
+django-debug-toolbar==2.2
 
 # Testing
 mock==4.0.2

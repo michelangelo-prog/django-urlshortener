@@ -33,3 +33,4 @@ Access the admin site at the adress [http://localhost:8000/admin/](http://localh
 ```sh
 docker exec -it urlshortener-app python manage.py collectstatic
 ```
+Access the application at the address [http://localhost:1337/](http://localhost:1337/)
