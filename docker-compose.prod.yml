@@ -21,7 +21,7 @@ services:
       - ./.envs/.production/.urlshortener_app
       - ./.envs/.production/.postgres
     command: >
-      bash -c "python wait_for_postgres.py &&
+      su -m app_user -c "python wait_for_postgres.py &&
                gunicorn --bind 0.0.0.0:8000 config.wsgi:application"
     volumes:
       - static_volume:/usr/src/urlshortener/static
