@@ -10,9 +10,9 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 DEBUG = strtobool(os.getenv("DJANGO_DEBUG", "no"))
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0"]
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -23,10 +23,10 @@ INSTALLED_APPS = (
     "crispy_forms",
     # apps
     "urlshortener.urlshortener",
-)
+]
 
 # https://docs.djangoproject.com/en/2.0/topics/http/middleware/
-MIDDLEWARE = (
+MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -34,7 +34,7 @@ MIDDLEWARE = (
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-)
+]
 
 ROOT_URLCONF = "config.urls"
 

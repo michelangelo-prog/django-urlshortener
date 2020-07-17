@@ -8,4 +8,4 @@ class UrlFactory(DjangoModelFactory):
     class Meta:
         model = Url
 
-    url = Sequence(lambda n: f"http://test.pl/test{n}")
+    url = Sequence(lambda n: f"http://localhost/test/test{n}")
