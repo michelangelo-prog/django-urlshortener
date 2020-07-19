@@ -15,7 +15,7 @@ services:
     container_name: urlshortener-app
     build:
       context: ./urlshortener_app
-      dockerfile: Dockerfile
+      dockerfile: ./compose/local/Dockerfile
     restart: always
     env_file:
       - ./.envs/.local/.urlshortener_app

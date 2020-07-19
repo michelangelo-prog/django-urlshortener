@@ -6,10 +6,10 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # add requirements
-COPY ./requirements.txt /usr/src/app/requirements.txt
+COPY ./requirements /usr/src/app/requirements
 
 # install requirements
-RUN pip install -r requirements.txt
+RUN pip install -r requirements/local.txt
 
 # add app
 COPY . /usr/src/app
