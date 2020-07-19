@@ -4,13 +4,15 @@ from os.path import join
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-SITE_URL = os.getenv("SITE_URL", "http://0.0.0.0:8000")
+SITE_URL = os.getenv("SITE_URL")
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 DEBUG = strtobool(os.getenv("DJANGO_DEBUG", "no"))
 
 ALLOWED_HOSTS = ["localhost", "0.0.0.0"]
+
+ALLOWED_HOSTS += [os.getenv("DOMAIN")]
 
 INSTALLED_APPS = [
     "django.contrib.admin",

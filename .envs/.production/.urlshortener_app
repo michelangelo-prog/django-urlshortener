@@ -3,4 +3,5 @@
 DJANGO_SECRET_KEY=change_in_prod
 DJANGO_DEBUG=no
 DJANGO_SETTINGS_MODULE=config.settings.production
-SITE_URL=http://localhost:1337
+SITE_URL=http://localhost:8000
+DOMAIN=localhost
